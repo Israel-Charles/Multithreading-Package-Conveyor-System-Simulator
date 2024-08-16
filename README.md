@@ -3,6 +3,8 @@
 ### Overview
 The Package Management Facility Simulation is a multi-threaded Java application designed to model an automated package routing system. This simulation involves multiple routing stations and conveyors, demonstrating how packages are moved efficiently through a facility while managing synchronization and avoiding deadlocks. The application showcases key concepts in concurrent programming, such as thread management, manual synchronization, and resource sharing.
 
+#### Demo > https://codepad.site/pad/10qu8118
+
 ### Description:
 An example Simulation could consists of five routing stations (S0 to S4) and five conveyors (C0 to C4). Each station has an input and output conveyor for moving packages from one part of the facility to another. Two adjacent stations share a conveyor, and access to these shared conveyors must be strictly regulated to prevent synchronization issues. The direction of package flow is not important in this simulation.
 
