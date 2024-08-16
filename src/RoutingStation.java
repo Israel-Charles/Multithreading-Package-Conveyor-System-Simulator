@@ -33,13 +33,13 @@ public class RoutingStation implements Runnable {
     // Method for simulating Routing Station work during which the station is moving packages
     public void doWork() {
         try {
-            System.out.println("\n* * * * * Routing Station S" + stationID + ": CURRENTLY HOLDS BOTH - INPUT CONVOYOR AND OUTPUT CONVEYOR * * * * *" +
-            "\n\t\t\t\t\t* * * CURRENTLY WORKING - MOVING PACKAGES. * * *");
+            System.out.println("\n*** Routing Station S" + stationID + ": CURRENTLY HOLDS BOTH - INPUT CONVOYOR AND OUTPUT CONVEYOR ***" +
+            "\n*** Routing Station S" + stationID + ": CURRENTLY WORKING - MOVING PACKAGES. ***");
             Thread.sleep(randomSeed.nextInt(1000)); // Hold the conveyors for a random period of time to simulate work flow
             workload--;
-            System.out.println("\n\t* * * Routing Station S" + stationID + ": Package group completed - " + workload + " package groups remaining to move. * * *\n");
+            System.out.println("\n\t*** Routing Station S" + stationID + ": Package group completed - " + workload + " package groups remaining to move. ***\n");
             if (workload == 0) {
-                System.out.println("\n# # # # Routing Station S" + stationID + ": going offline – work completed! BYE! # # # #\n");
+                System.out.println("\n*** Routing Station S" + stationID + ": going offline – work completed! BYE! ***\n");
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class RoutingStation implements Runnable {
     // The run() method - this is what a Station does
     @Override
     public void run() {
-        System.out.println("\n% % % % % ROUTING STATION S" + stationID + " Coming Online - Initializing Conveyors % % % % %\n");
+        System.out.println("\n*** ROUTING STATION S" + stationID + " Coming Online - Initializing Conveyors ***\n");
 
         // Run the simulation on the station for its entire workload
         while (workload > 0) {
@@ -76,7 +76,7 @@ public class RoutingStation implements Runnable {
                     } else {
                         System.out.println("\n\tRouting Station S" + stationID + ": UNABLE TO LOCK OUTPUT CONVEYOR C" + outputConveyor.getID() + 
                         ".\n\t\tSYNCHRONIZATION ISSUE: Station S" + outputConveyor.getLockedBy() + " currently holds the lock on output\n\t\tconveyor C" + 
-                        outputConveyor.getID() + " – " + "Station S" + stationID + " releasing lock on input conveyor C" + inputConveyor.getID());
+                        outputConveyor.getID() + " - " + "Station S" + stationID + " releasing lock on input conveyor C" + inputConveyor.getID());
 
                         inputConveyor.unlockConveyor();
                         
@@ -87,6 +87,6 @@ public class RoutingStation implements Runnable {
             }
         }
 
-        System.out.println("\n@ @ @ @ @ @ @ ROUTING STATION S" + stationID + ": OFFLINE @ @ @ @ @ @ @\n");
+        System.out.println("\n*** ROUTING STATION S" + stationID + ": OFFLINE ***\n");
     }
 }
