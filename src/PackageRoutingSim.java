@@ -11,8 +11,6 @@ public class PackageRoutingSim {
 
     public static void main(String args[]) {
         try {
-            System.out.println("********** PACKAGE MANAGEMENT FACILITY SIMULATION BEGINS ********** \n");
-
             // Array list to store the integers from config.txt
             List<Integer> configFile = new ArrayList<>();
 
@@ -35,9 +33,19 @@ public class PackageRoutingSim {
             // Save the first integer in the config.txt file as the number of routing stations in the simulation run
             int numStations = configFile.get(0);
 
+            // Outputing the input file
+            System.out.println("Configuration/Input:");
+            System.out.println("\tNumber of Stations: " + numStations);
+
+            for (int i = 0; i < numStations; i++){
+                System.out.println("\tStation " + (i + 1) + ": " + configFile.get(i + 1) + " package(s)");
+            }
+
+            System.out.println("\n*** PACKAGE MANAGEMENT FACILITY SIMULATION BEGINS *** \n");
+
             // Create an array of ConveyorV1 objects
-            ConveyorObj[] conveyorArr = new ConveyorObj[MAX_STATIONS];
-            for (int i = 0; i < MAX_STATIONS; i++) {
+            ConveyorObj[] conveyorArr = new ConveyorObj[numStations];
+            for (int i = 0; i < numStations; i++) {
                 conveyorArr[i] = new ConveyorObj(i);
             }
 
@@ -54,8 +62,8 @@ public class PackageRoutingSim {
             threadController.shutdown(); // Start the shutdown process - no new threads (tasks) will be started after this call.
             threadController.awaitTermination(1, TimeUnit.MINUTES); // Blocking technique
 
-            System.out.println("\n********** ALL WORKLOAD COMPLETED - SIMULATION IS SHUTTING DOWN **********");
-            System.out.println("********** THE PACKAGE MANAGEMENT FACILITY SIMULATION HAS ENDED **********");
+            System.out.println("\n*** ALL WORKLOAD COMPLETED - SIMULATION IS SHUTTING DOWN ***");
+            System.out.println("*** THE PACKAGE MANAGEMENT FACILITY SIMULATION HAS ENDED ***");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
