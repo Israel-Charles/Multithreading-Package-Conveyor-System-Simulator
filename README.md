@@ -1,4 +1,4 @@
-# Multithreading-Package-Simulator
+# Multithreading Package Conveyor System Simulator
 
 ### Overview
 The Package Management Facility Simulation is a multi-threaded Java application designed to model an automated package routing system. This simulation involves multiple routing stations and conveyors, demonstrating how packages are moved efficiently through a facility while managing synchronization and avoiding deadlocks. The application showcases key concepts in concurrent programming, such as thread management, manual synchronization, and resource sharing.
